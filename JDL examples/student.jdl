@@ -1,0 +1,36 @@
+application {
+  config {
+    baseName student,
+    applicationType monolith,
+    packageName com.jhipster.demo.student,
+    prodDatabaseType mysql,
+    cacheProvider hazelcast,
+    buildTool maven,
+    clientFramework react,
+    useSass true,
+    testFrameworks [protractor]
+  }
+  entities *
+}
+
+entity Student {
+  name String required,
+
+}
+
+entity Course {
+  name String required,
+
+}
+
+entity StudentCourses{
+	name Sring required,  
+}
+
+relationship OneToMany {
+    Student{studentcourses} to StudentCourses{student}
+    Course{studentcourses} to StudentCourses{course}
+}
+
+
+paginate Post, Tag with infinite-scroll
